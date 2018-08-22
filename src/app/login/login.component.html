@@ -1,0 +1,39 @@
+
+<section class="container-fluid main-section">
+    <div class="col-sm-12">
+      <div class="col-sm-4">
+        <img class="logo" src="assets/images/logo.png">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-4 col-md-offset-4">
+                 <img class="img-cent home-icon" src="assets/images/icons.png">
+                 <!-- <div class="col-sm-12 form-sec"> -->
+                    <div id="Login" class="col-sm-12 form-sec tab-pane fade in active">
+                    <div *ngIf="loader" class="loaderCntr" style="display: block;">
+                        <div class="loading-screen loading-screen--white"> <span class="preloader--center preloader--lg icon-spin"> <i class="udi udi-circle-loader"></i> </span> </div>
+                      </div>
+                   <form [formGroup]="form" (submit)="onLoginSubmit()">
+                     <div class="form-group">
+                       <input formControlName="username" type="email"  name="email" class="form-control log-input" placeholder="Email">
+                     </div>
+                     <div class="form-group">
+                       <input formControlName="password" type="password"  name="password" class="form-control log-input" placeholder="Password">
+                     </div>
+                     <div class="form-group">
+                       <p class="forget-pass"><a routerLink="/forgotpassword">Forget Password</a></p>
+                     </div>
+                     <!-- Custom Success/Error Message -->
+
+                     <p style="text-align: center;color: #a94442"> {{ message }}</p>
+
+                     <div class="form-group">
+                       <button [disabled]="!form.valid || processing" class="login-btn">Sign In</button>
+                     </div>
+                   </form>
+                 </div>
+  
+      </div>
+    </div>
+  </section>
+

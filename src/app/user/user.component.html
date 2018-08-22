@@ -1,0 +1,58 @@
+
+<section class="container-fluid dasboard-main">
+
+<div  class="col-md-12">
+    <div class="col-sm-12">
+         <p class="main-titel">Accounts</p>
+    </div>
+    
+    <div class="col-sm-12">
+
+
+
+        <div></div>
+
+
+        <p class="new-user">
+      <pagination-controls class="myPagination" maxSize="7"(pageChange)="getServerData($event)" id="client"></pagination-controls>
+       
+  </p>
+    </div>
+    <div *ngIf="loader" class="loaderCntr" style="display: block;">
+        <div class="loading-screen loading-screen--white"> <span class="preloader--center preloader--lg icon-spin"> <i class="udi udi-circle-loader"></i> </span> </div>
+      </div>
+  <div style="width:100%" class="col-sm-12">
+      <div class="col-sm-12 account-list">
+        <div  class="col-sm-12 padd0 account-list-head">
+         <div class="col-md-1 item">User Id</div>
+         <div class="col-md-2 item">Name</div>
+         <div class="col-md-4 item">Email</div>
+         <div class="col-md-2 item">Date Created</div>
+         <div class="col-md-3 item">Action</div>
+        </div>
+        
+
+        <div *ngFor="let user of users|paginate: { id: 'client', itemsPerPage: 10, currentPage: p, totalItems:count } let i = index;" class="col-sm-12 padd0 account-list-item user-list">
+          <!-- {{ book.title }} -->
+       <div style="text-align: left" class="col-sm-1 item">{{ (p - 1) * 10 + i +1 }}</div>
+       <div style="text-align: left"  class="col-sm-2 item">{{ user.name }}</div>
+       <div style="text-align: left" class="col-sm-4 item">{{ user.email }}</div>
+       <div style="text-align: left" class="col-sm-2 item">{{ user.created | date}}</div>
+       <div class="col-sm-3 item">
+         <div style="float: left;">
+            <button *ngIf="!user.active" (click)="buttonDisableClick(i)" class="btn btn2 fa fa-times-circle-o 	glyphicon glyphicon-ok-sign" >Activate</button>
+            <button *ngIf="user.active" (click)="buttonDisableClick(i)" class="btn btn3 fa fa-times-circle-o" >Deactivate</button>
+         </div>
+        <div style="float:right ">
+            <button type="button" (click)="deleteuser(user._id)" ng-show="user.deleteAccess" class="btn btn3 glyphicon glyphicon-trash">Delete</button></div>
+
+        </div>
+      </div>   
+           
+      </div>
+  </div> 
+
+</div>
+
+
+</section>

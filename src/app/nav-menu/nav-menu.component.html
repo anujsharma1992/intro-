@@ -1,0 +1,22 @@
+ <div class="main-menu">
+
+<a [routerLink]="['/dashboard']">
+            <img width="100" class="img-cent" src="assets/images/logo.png">
+          </a>
+          
+     
+       <div class="col-sm-12">
+            <p class="welcome">Welcome <strong>Admin</strong></p>
+            <div class="profile-img"><img class="img-cent img-responsive" src="assets/images/profile-img.jpg"></div>
+            <ul class="dasboard-list">
+                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><a [routerLink]="['/dashboard']"routerLinkActive="active"><i class="fa fa-tachometer" aria-hidden="true"></i> Dasboard</a></li>
+                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a  [routerLink]="['/user']"><i class="fa fa-address-card-o" aria-hidden="true"></i> Users</a></li>
+                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a  [routerLink]="['/email']"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email Templets</a></li>
+                 <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a  [routerLink]="['/accounts']"><i class="fa fa-user-o" aria-hidden="true"></i> Accounts</a></li>
+       
+            </ul>
+       </div>
+       <img width="100" class="img-cent" src="assets/images/icons.png">  
+    </div>
+
+   

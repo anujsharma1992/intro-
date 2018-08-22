@@ -1,0 +1,99 @@
+   
+       
+   <section class="container-fluid dasboard-main">
+  
+   <div class="col-sm-12">
+        <div class="col-sm-12">
+             <p class="main-titel">Dasboard</p>
+        </div>
+      <div class="col-sm-3">
+           <div class="col-sm-12 count-sec">
+               <p class="count-num">0</p>
+               <p class="count-titel">Totel Chips Activated</p> 
+           </div>
+           <div class="col-sm-12 count-sec">
+               <p class="count-num">{{count}}</p>
+               <p class="count-titel">Totel Users</p> 
+           </div>
+           <div class="col-sm-12 count-sec">
+               <p class="count-num">{{count}}</p>
+               <p class="count-titel">Totel Registered User</p> 
+           </div>
+      </div>
+      <div class="col-sm-7">
+           <div class="col-sm-12 round-chart">
+               <div class="col-sm-12"><p class="count-titel">Users by Geography</p> </div>
+          
+                <div style="display: block">
+                    
+                  <canvas baseChart  width="400px" height="200"
+                              [data]=countryCount
+                              [labels]=counTries
+                              [chartType]="doughnutChartType"
+                               [options] ="doughnutchartOptions"
+                              [colors]  ="doughnutcolors"
+                              (chartHover)="chartHovered($event)">
+        
+                          </canvas>
+                </div>
+              
+           </div>
+      </div>
+      <!-- <div class="col-sm-12">
+           <div class="col-sm-10 full-chart">
+                <div class="col-sm-12">
+                  <div class="col-sm-8 col-md-offset-2"><p class="count-titel">Users by Geography</p> </div>
+                  <div class="col-sm-2">
+                       <ul class="chart-option" style="padding-left: 0px;">
+                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Weekly <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                               <li><a href="#">Action</a></li>
+                               <li><a href="#">Action 2</a></li>
+                               <li><a href="#">Action 3</a></li>
+                          </ul>
+   
+                       </li>
+                     </ul>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <ul class="chart-option">
+                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Column Chart <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                               <li><a href="#">Action</a></li>
+                               <li><a href="#">Action 2</a></li>
+                               <li><a href="#">Action 3</a></li>
+                          </ul>
+   
+                       </li>
+                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fromat<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                               <li><a href="#">Action</a></li>
+                               <li><a href="#">Action 2</a></li>
+                               <li><a href="#">Action 3</a></li>
+                            </ul>
+                       </li>
+                  </ul>
+                  <div>
+                    <canvas
+                        baseChart
+                        [chartType]="'bar'"
+                        [datasets]="chartData"
+                        [labels]="labels"
+                        [options]="chartOptions"
+                        [legend]="true"
+                        [colors]="colors"
+                        (chartClick)="onChartClick($event)">
+                    </canvas>
+                  </div>
+                </div>
+           </div>
+      </div>   -->
+   
+   </div>
+   
+   
+   
+   
+   </section>
+   

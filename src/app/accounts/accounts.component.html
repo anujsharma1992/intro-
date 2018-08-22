@@ -1,0 +1,84 @@
+<section class="container-fluid dasboard-main">
+  <div *ngIf="loader" class="loaderCntr" style="display: block;">
+    <div class="loading-screen loading-screen--white"> <span class="preloader--center preloader--lg icon-spin"> <i class="udi udi-circle-loader"></i> </span> </div>
+  </div>
+<div class="col-sm-12">
+    <div class="col-sm-12">
+         <p class="main-titel">Users</p>
+    </div>
+
+    <div class="col-sm-12 padd0" style="min-height: 40px;">
+        <p class="new-user">
+       
+          <pagination-controls class="myPagination"(pageChange)="getPage($event)" id="server"></pagination-controls>
+</p>
+      <form >
+
+     <div class="col-sm-5"><input   ng-model="settingRadio('search')" [formControl]="queryField" type="text" class="form-control search-input" placeholder="Search"></div>
+     <ul>
+      <li *ngFor="let search of searches">{{ search }}</li>
+    </ul>  
+     <div class="col-sm-5">
+          <label  class="radio-inline">
+            <input type="radio" name="option1" (click)="setRadio('allusers')" [checked]='true' id="inlineRadio1" value="option1"  checked> All Accounts
+          </label>
+          <label  class="radio-inline">
+            <input type="radio"  name="option1" (click)="setRadio('Deactivated')" id="inlineRadio2" value="option2"> Deactivated
+          </label>
+
+        </div>
+      </form>
+    </div>
+  <div class="col-sm-12">
+      <div class="col-sm-10 account-list">
+        <div class="col-sm-12 padd0 account-list-head">
+         <div class="col-sm-2 item">ID</div>
+         <div class="col-sm-4 item">Accounts Name</div>
+         <div class="col-sm-3 item">Country</div>
+         <div class="col-sm-3 item">Action</div>
+        </div>
+
+   <div *ngFor="let user of users|paginate: { id: 'server', itemsPerPage: 10, currentPage: p, totalItems:count }  let i = index;" class="col-sm-12 padd0 account-list-item">
+         <div class="col-sm-2 item">
+           <p style="text-align: left">{{ (p - 1) * 10 + i +1 }} </p></div>
+         <div class="col-sm-4 item">
+           <p style="text-align: left">{{user.name}}</p></div>
+         <div class="col-sm-3 item">
+           <p style="text-align: left">{{user.Country}}</p></div>
+         <div class="col-sm-3 item">
+           <div style="float: left">
+              <button *ngIf="!user.active" (click)="buttonDisableClick(i)" class="btn btn2 fa fa-times-circle-o glyphicon glyphicon-ok-circle">Activate</button>
+              <button *ngIf="user.active" (click)="buttonDisableClick(i)" class="btn btn3 fa fa-times-circle-o 	glyphicon glyphicon-remove-circle">Deactivate</button> 
+           </div>
+         
+          <div style="float:right;"> 
+              <button (click)="Clickme(i)" id="view-details1" class="btn btn2 fa fa-eye">Details</button>
+
+          </div>
+          </div>
+          <div class="col-sm-12 details-view" id="details-view1{{i}}">
+              <div class="col-sm-5">
+                <p><strong>Name:</strong>  {{user.name}}</p>
+                <p><strong>Email:</strong>   {{user.email}}</p>
+                <p><strong>Interests:</strong>  {{user.interst}}</p>
+                <p><strong>Registered on:</strong> {{user.created |date}}</p>
+              </div>
+              <div class="col-sm-5">
+                <p><strong>Address:</strong> 543 Dunny Address, NY 21435</p>
+                <p><strong>About:</strong> {{user.about}} </p>
+              </div>
+              <div class="col-sm-2">
+                <div class="profile-img"> {{user.profileImage}}</div>
+              </div>
+            </div>
+
+      </div>
+     
+      </div>
+
+
+  </div> 
+
+</div>
+
+</section>
